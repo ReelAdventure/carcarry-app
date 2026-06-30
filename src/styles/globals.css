@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 29 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 69%;
+    --accent: 29 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 29 100% 50%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: #080808;
+    color: #fff;
+    font-family: 'Inter', 'Avenir Next', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .cc-card {
+    background: #111111;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+  }
+
+  .cc-card-hover {
+    background: #111111;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .cc-card-hover:hover {
+    border-color: rgba(255,119,0,0.2);
+    background: #141414;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+
+  .cc-btn-primary {
+    background: linear-gradient(135deg, #FF7700 0%, #CC5F00 100%);
+    color: white;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(255,119,0,0.25);
+  }
+  .cc-btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255,119,0,0.35);
+  }
+
+  .cc-btn-secondary {
+    background: rgba(255,255,255,0.04);
+    color: #B0B0B0;
+    border: 1px solid rgba(255,255,255,0.07);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+  }
+  .cc-btn-secondary:hover {
+    background: rgba(255,255,255,0.07);
+    color: white;
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  .cc-btn-ghost {
+    color: #666;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+  }
+  .cc-btn-ghost:hover {
+    background: rgba(255,255,255,0.04);
+    color: white;
+  }
+
+  .cc-input {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    color: white;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    outline: none;
+  }
+  .cc-input::placeholder {
+    color: #3A3A3A;
+  }
+  .cc-input:focus {
+    border-color: rgba(255,119,0,0.4);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 0 3px rgba(255,119,0,0.08);
+  }
+
+  .cc-label {
+    color: #555;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .cc-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .cc-stat-card {
+    @apply cc-card p-5 flex flex-col gap-3;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[#B0B0B0] hover:text-white hover:bg-[#272727] transition-all duration-200 cursor-pointer;
+  }
+
+  .sidebar-item-active {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-semibold text-white bg-[#FF7700]/10 border border-[#FF7700]/20;
+  }
+
+  .sidebar-item-active svg {
+    @apply text-[#FF7700];
+  }
+
+  .page-header {
+    @apply mb-8;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold text-white font-title mb-1;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .page-subtitle {
+    @apply text-[#B0B0B0] text-sm;
+  }
+
+  .table-header {
+    @apply text-[#B0B0B0] text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .table-cell {
+    @apply text-white text-sm py-3.5 border-b border-[#1E1E1E];
+  }
+
+  .section-title {
+    @apply text-lg font-semibold text-white mb-4;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .kanban-col {
+    background: #0D0D0D;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 16px;
+    min-height: 500px;
+    width: 288px;
+    flex-shrink: 0;
+  }
+
+  .kanban-card {
+    background: #141414;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .kanban-card:hover {
+    border-color: rgba(255,119,0,0.2);
+    background: #181818;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+}
+
+@layer utilities {
+  .text-gradient-orange {
+    @apply bg-gradient-to-r from-[#FF7700] to-[#FF9933] bg-clip-text text-transparent;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #2E2E2E transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #2E2E2E;
+    border-radius: 2px;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
